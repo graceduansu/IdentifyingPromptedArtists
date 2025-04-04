@@ -1,0 +1,16 @@
+__pycache__/
+**/__pycache__/*
+.vscode/
+.cache/
+
+# models and dataset
+trained_models/
+dataset*/
+*images*/
+JourneyDB/
+*.tar.gz
+
+# logs and results
+RESULTS/
+logs/
+wandb/
