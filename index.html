@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class=" w-mod-ix">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style>
+        .wf-force-outline-none[tabindex="-1"]:focus {
+            outline: none;
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMTSZM1Z57"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-YMTSZM1Z57');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Identifying Prompted Artist Names from Generated Images</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link href="assets/css.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/Highlight-Clean.css">
+    <link rel="stylesheet" href="assets/styles.css">
+
+    <link rel="manifest" href="assets/site.webmanifest">
+
+    <meta name="description" content="Identifying Prompted Artist Names from Generated Images, 2025.">
+    <meta property="og:url" content="https://IdentifyingPromptedArtists.github.io">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Identifying Prompted Artist Names from Generated Images">
+    <meta property="og:description" content="Identifying Prompted Artist Names from Generated Images, 2025.">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="github.io">
+    <meta property="twitter:url" content="https://IdentifyingPromptedArtists.github.io">
+    <meta name="twitter:title" content="Identifying Prompted Artist Names from Generated Images">
+    <meta name="twitter:description" content="Identifying Prompted Artist Names from Generated Images, 2025.">
+
+    <script src="assets/video_comparison.js"></script>
+    <script type="module" src="assets/model-viewer.min.js"></script>
+    <style>
+        strong {
+            font-weight: bold;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <div class="highlight-clean d-flex flex-column align-items-center justify-content-center"
+        style="padding-bottom: 20px;">
+        <div class="container" style="padding-bottom: 10px; max-width: 1000px;">
+            <h1 class="text-center">Identifying Prompted Artist Names from Generated Images</h1>
+        </div>
+        <div class="container  d-flex flex-column align-items-center justify-content-center" style="max-width: 900px;">
+            <div class="row authors" style="padding-bottom: 20px;">
+                <h5 class="text-center"><a class="text-center" href=" https://graceduansu.github.io">Grace
+                        Su</a><sup>1</sup></h5>
+                <h5 class="text-center"><a class="text-center" href="https://peterwang512.github.io/">Sheng-Yu
+                        Wang</a><sup>1</sup></h5>
+                <h5 class="text-center"><a href="https://research.adobe.com/person/aaron-hertzmann/">Aaron
+                        Hertzmann</a><sup>2</sup></h5>
+                <h5 class="text-center"><a class="text-center"
+                        href="https://research.adobe.com/person/eli-shechtman/">Eli Shechtman</a><sup>2</sup></h5>
+                <h5 class="text-center"><a class="text-center" href="https://www.cs.cmu.edu/~junyanz/">Jun-Yan
+                        Zhu</a><sup>1</sup></h5>
+                <h5 class="text-center"><a href="https://richzhang.github.io">Richard Zhang</a><sup>2</sup></h5>
+            </div>
+            <div class="row authors institute">
+                <div class="col-sm-12">
+                    <h3 class="text-center"><sup>1</sup> CMU &nbsp&nbsp <sup>2</sup>Adobe Research</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons" style="margin-bottom: 8px;">
+            <a class="btn btn-light" role="button" href="https://arxiv.org/abs/2507.18633">
+                <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z">
+                    </path>
+                </svg>Paper
+            </a>
+            <a class="btn btn-light" role="button" href="https://github.com/graceduansu/IdentifyingPromptedArtists">
+                <svg style="visibility:hidden;width:0px;height:24px;margin-left:-12px;margin-right:12px" width="0px"
+                    height="24px" viewBox="0 0 375 531">
+                    <img src="assets/github-mark.svg"
+                        style="width:24px;height:24px;margin-left:-12px;margin-right:12px" />
+                    <!-- <polygon stroke="#000000" points="0.5,0.866 459.5,265.87 0.5,530.874 "/> -->
+                </svg>
+                Code
+            </a>
+            <a class="btn btn-light" role="button"
+                href="https://huggingface.co/datasets/cmu-gil/PromptedArtistIdentificationDataset">
+                <!-- <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 375 531">
+                    <img src="assets/huggingface_logo-noborder.svg" style="width:24px;height:24px;margin-left:-12px;margin-right:12px"/>
+                </svg> -->
+                <img src="assets/huggingface_logo-noborder.svg" alt="Hugging Face"
+                    style="width:24px;height:24px;margin-right:8px;" />
+
+                Full Dataset
+            </a>
+            <a class="btn btn-light" role="button"
+                href="https://huggingface.co/datasets/cmu-gil/PromptedArtistIdentificationDataset-ViewSamples">
+                <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" width="24px" height="24px"
+                    viewBox="0 0 375 531">
+                    <polygon stroke="#000000" points="0.5,0.866 459.5,265.87 0.5,530.874 " />
+                </svg>
+                Sample Dataset Viewer
+            </a>
+        </div>
+    </div>
+
+    <div class="container" style="max-width: 1200px;">
+        <div class="row teaser">
+            <div class="col-md-12">
+                <!-- Large format devices -->
+                <center><img src="assets/mainpage/teaser.jpg" style="width: 100%;" /></center>
+                <p><strong>Prompted Artist Identification Benchmark.</strong> We introduce the first large-scale
+                    benchmark for
+                    identifying prompted artist names from
+                    generated images. The benchmark covers four axes of generalization that match realistic use cases:
+                    <strong>(1) Artists:</strong> we collect artists commonly
+                    used in prompts and simulate open-set artist classification by testing on artists not seen during
+                    training. <strong>(2) Prompt complexity:</strong> users
+                    describe images in many different ways, including short, simple prompts as well as more descriptive,
+                    complex prompts. <strong>(3) Text-to-image
+                        models:</strong> users can generate images using various text-to-image models, which have
+                    different training data and architectures that may affect
+                    the generated image’s overall style. <strong>(4) Number of artists:</strong> users may include
+                    multiple artists in the prompt to mix styles, creating images
+                    that are not easily attributable to a single artist.
+                </p>
+                <p></p>
+                <h6 class="caption"></h6>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <hr class="divider"> -->
+    <hr style="max-width: 1200px;">
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h2>Abstract</h2>
+                </center>
+                <p>
+                    A common and controversial use of text-to-image models is to generate pictures by explicitly naming
+                    artists, such as “in the style of Greg Rutkowski”.
+
+                    We introduce a benchmark for <em>prompted-artist recognition</em>: predicting which artist names
+                    were invoked
+                    in the prompt from the image alone. The dataset contains 1.95M images covering 110 artists and spans
+                    four generalization settings: held-out artists, increasing prompt complexity, multiple-artist
+                    prompts, and different text-to-image models.
+
+                    We evaluate feature similarity baselines, contrastive style descriptors, data attribution methods,
+                    supervised classifiers, and few-shot prototypical networks. Generalization patterns vary: supervised
+                    and few-shot models excel on seen artists and complex prompts, whereas style descriptors transfer
+                    better when the artist’s style is pronounced; multi-artist prompts remain the most challenging.
+
+                    Our benchmark reveals substantial headroom and provides a public testbed to advance the responsible
+                    moderation of text-to-image models. We release the dataset and benchmark to foster further
+                    research.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <hr class="divider"> -->
+    <hr style="max-width: 1200px;">
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h2>Prompted Artist Identification Dataset</h2>
+                </center>
+                <p>
+                    We construct a structured dataset of 1.95M images to benchmark different methods
+                    on predicting prompted artist names from generated images. To help disentangle the effect of
+                    prompting given an artist name, we query
+                    a text-to-image model given the same content prompt (rows), but insert different artist names
+                    (columns). Our dataset consists of images
+                    generated by <a href="https://arxiv.org/abs/2307.01952">SDXL</a>, <a
+                        href="https://openaccess.thecvf.com/content/CVPR2022/papers/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.pdf">SD1.5</a>,
+                    <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04633.pdf">PixArt-Σ</a>, and <a
+                        href="https://www.midjourney.com/">Midjourney</a>,
+                    with both complex and simple prompts. Each artist’s style
+                    tends to become less visually prominent when the prompt becomes more complex, especially when the
+                    prompt calls for additional styles
+                    and adjectives or specifies the content that may not be in the distribution of content in the
+                    artist’s work (e.g., 2nd row, “a village carved into
+                    a red canyon rock wall”). The variance in the visibility of the artist’s style across different
+                    prompts and models demonstrates the difficulty
+                    of the prompted artist identification task.
+                </p>
+                <div style="text-align: center;">
+                    <img src="assets/mainpage/dataset.jpg" style="width: 100%;" />
+                </div>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <hr class="divider"> -->
+    <hr style="max-width: 1200px;">
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h2>Dataset Statistics</h2>
+                </center>
+                <p>
+                    The prompted artist identification benchmark employs a structured dataset of 1.95M images to
+                    evaluate
+                    vision methods across four axes of generalization. We collect 110 of the most frequently prompted
+                    artists, split into 100 seen and 10
+                    held-out artists (1st chart). Next, we collect 1,000 complex prompts and 500 simple prompts in which
+                    artist names are inserted (2nd chart).
+                    For seen artists, we use a separate set of prompts for testing. For held-out artists, we further
+                    divide the test prompts to generate a set of
+                    reference images used during inference. Then, we generate single artist-prompted images with SDXL,
+                    SD1.5, and PixArt-Σ,
+                    and collect Midjourney images (3rd chart). Finally, we evaluate how well methods generalize to
+                    multiple artists in the prompt by
+                    generating datasets of SDXL images prompted with 2 artists and 3 artists (4th chart).
+                </p>
+                <p></p>
+                <p></p>
+                <div style="text-align: center;">
+                    <img src="assets/mainpage/dataset_pie_charts_v2.jpg" style="width: 100%;" />
+                </div>
+                <p></p>
+                <p></p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <hr class="divider"> -->
+    <hr style="max-width: 1200px;">
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h2>Multi-Artist Prompted Images</h2>
+                </center>
+                <p>
+                    In the example images shown, we observe that the effect of adding each artist’s name in the
+                    prompt diminishes as more artists are added. Each row shows a set of images generated with the same
+                    prompt and generation seed, and the
+                    number of artists inserted into the prompt increases from left to right. For each prompt, the image
+                    changes less with each additional artist,
+                    and images generated with complex prompts generally change less than those generated with simple
+                    prompts. This shows that identifying multiple prompted artist names can be even harder than
+                    identifying a single prompted artist name from each image.
+
+                </p>
+                <p></p>
+                <p></p>
+                <div style="text-align: center;">
+                    <img src="assets/mainpage/multiartist_dataset.jpg" style="width: 80%;" />
+                </div>
+                <p></p>
+                <p></p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <hr class="divider"> -->
+    <hr style="max-width: 1200px;">
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h2>Single-Artist Prediction Results</h2>
+                </center>
+                <p>
+                    We compare the prompted artist classification accuracy of various visual representation methods. We
+                    test within our seen artists set (100-way classification, x-axis) and on held-out artists (10-way
+                    classification, y-axis). We also test
+                    on images generated with different text-to-image models (SDXL, SD1.5, PixArt, and Midjourney), and
+                    complex and simple prompts. Although <a href="https://arxiv.org/abs/1703.05175">prototypical
+                        networks</a>,
+                    the trained vanilla classifier, and <a href="https://somepago.github.io/csd.html">CSD</a> surpass
+                    the <a href="https://proceedings.mlr.press/v139/radford21a/radford21a.pdf">CLIP</a>,
+                    <a href="https://arxiv.org/abs/2304.07193">DINOv2</a>, and <a
+                        href="https://peterwang512.github.io/GenDataAttribution/">AbC</a> methods,
+                    attaining high accuracy across all scenarios remains difficult.
+
+                </p>
+                <p></p>
+                <p></p>
+                <div style="text-align: center;">
+                    <img src="assets/mainpage/results_single_artist.jpg" style="width: 100%;" />
+                </div>
+                <p></p>
+                <p></p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <hr class="divider"> -->
+    <hr style="max-width: 1200px;">
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h2>Multi-Artist Prediction Results</h2>
+                </center>
+                <p>
+                    We evaluate visual representation methods on the multi-artist classification task, where
+                    the input image is prompted with multiple artists’ names. We
+                    test on SDXL-generated images with 2 artists and 3 artists in the
+                    prompt, and report ranked mAP@10 on seen artists (x-axis) and
+                    held-out artists (y-axis). All methods generally exhibit reduced
+                    performance on images generated from complex prompts compared to those generated from simple
+                    prompts. As expected, the
+                    prototypical network
+                    achieves the highest performance across the
+                    datasets due to its training on multi-artist prompted images. However, its performance falls short
+                    of saturation.
+
+                </p>
+                <p></p>
+                <p></p>
+                <div style="text-align: center;">
+                    <img src="assets/mainpage/results_multi_artist.jpg" style="width: 65%;" />
+                </div>
+                <p></p>
+                <p></p>
+
+            </div>
+        </div>
+    </div>
+
+    <hr style="max-width: 1200px;">
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h2>Related Works</h2>
+                </center>
+                <h5>
+                    <ul>
+                        <li>
+                            Roberto Leotta, Oliver Giudice, Luca Guarnera, and Sebastiano Battiato. <a
+                                href="https://arxiv.org/abs/2307.13527">Not with my name! Inferring artists’ names of
+                                input strings employed by Diffusion Models.</a> In International Conference on Image
+                            Analysis and Processing, pages 364–375. Springer, 2023.
+                        </li><br>
+
+                        <li> Gowthami Somepalli, Anubhav Gupta, Kamal Gupta, Shramay Palta, Micah Goldblum, Jonas
+                            Geiping, Abhinav Shrivastava, and Tom Goldstein. <a
+                                href="https://somepago.github.io/csd.html">Investigating Style Similarity in Diffusion
+                                Models.</a> In ECCV, 2024.</li><br>
+
+                        <li>
+                            Mazda Moayeri, Samyadeep Basu, Sriram Balasubramanian,
+                            Priyatham Kattakinda, Atoosa Chegini, Robert Brauneis,
+                            and Soheil Feizi.
+                            <a href="https://arxiv.org/abs/2404.08030">Rethinking Copyright Infringements in the Era of
+                                Text-to-Image Generative Models.</a> In ICLR, 2025.
+                        </li><br>
+
+                        <li>
+                            Sheng-Yu Wang, Alexei A Efros, Jun-Yan Zhu, and Richard
+                            Zhang. <a href="https://peterwang512.github.io/GenDataAttribution/">Evaluating Data
+                                Attribution for Text-to-Image Models.</a>
+                            In ICCV, 2023.
+                        </li><br>
+
+                    </ul>
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <hr style="max-width: 1200px;">
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h2>Acknowledgements</h2>
+                </center>
+                <p> We thank Maxwell Jones and Kangle Deng for their helpful discussion and comments.
+                    This work started when Grace Su was an Adobe intern.
+                    Grace Su is supported by the NSF Graduate Research Fellowship (Grant No. DGE2140739).
+                    This project was partially supported by NSF IIS-2403303, Adobe Research, and the Packard Fellowship.
+                    The website template
+                    is taken from <a href="https://www.cs.cmu.edu/~custom-diffusion/">Custom
+                        Diffusion</a> (which was built on<a href="https://dreamfusion3d.github.io/index.html">
+                        DreamFusion</a>'s project page).
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr style="max-width: 1200px;">
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h2>Citation</h2>
+                </center>
+                <code>
+                    @article{su2025identifying,<br>
+                    &nbsp; author = {Su, Grace and Wang, Sheng-Yu and Hertzmann, Aaron and Shechtman, Eli and Zhu, Jun-Yan and Zhang, Richard},<br>
+                    &nbsp; title = {Identifying Prompted Artist Names from Generated Images},<br>
+                    &nbsp; journal = {arXiv preprint arXiv:2507.18633},<br>
+                    &nbsp; year = {2025},<br>
+                }</code>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/polyfill.js"></script>
+    <script src="assets/yall.js"></script>
+    <script>
+        yall(
+            {
+                observeChanges: true
+            }
+        );
+    </script>
+    <script src="assets/scripts.js"></script>
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/bootstrap.bundle.min.js"></script>
+    <script src="assets/webflow.fd002feec.js"></script>
+
+    <!-- Import the component -->
+
+</body>
+
+</html>
